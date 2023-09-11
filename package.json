@@ -1,0 +1,36 @@
+{
+  "name": "mocking-classes-in-nodejs-with-jest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "dev": "ts-node-dev src/index.ts",
+    "start": "npm run build && node build/index.js",
+    "build": "rimraf ./build && tsc && npm run copyfiles",
+    "copyfiles": "copyfiles -u 1 src/migration/*.sql build",
+    "test": "jest",
+    "seed": "npx typeorm-ts-node-commonjs migration:run -d src/infra/database.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^29.5.4",
+    "@types/node": "^20.5.6",
+    "copyfiles": "^2.4.1",
+    "jest": "^29.5.4",
+    "rimraf": "^5.0.1",
+    "ts-jest": "^29.1.1",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "@types/express": "^4.17.17",
+    "express": "^4.18.2",
+    "inversify": "^6.0.1",
+    "reflect-metadata": "^0.1.13",
+    "sqlite3": "^5.1.6",
+    "typeorm": "^0.3.17"
+  }
+}
